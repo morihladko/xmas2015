@@ -60,7 +60,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	__webpack_require__(/*! ./style.css */ 7);
-	__webpack_require__(/*! ./youtube.js */ 12);
+	__webpack_require__(/*! ./pollyfills.js */ 12);
+	__webpack_require__(/*! ./youtube.js */ 13);
 	
 	var xmass = new _xmass2.default(),
 	    lastT = (0, _time2.default)(),
@@ -70,7 +71,7 @@
 	
 	function render() {
 		window.requestAnimationFrame(function () {
-			canvas.innerText = xmass.render();
+			canvas.textContent = xmass.render();
 	
 			render();
 		});
@@ -13169,6 +13170,29 @@
 
 /***/ },
 /* 12 */
+/*!***********************!*\
+  !*** ./pollyfills.js ***!
+  \***********************/
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	if (Object.defineProperty && Object.getOwnPropertyDescriptor && Object.getOwnPropertyDescriptor(Element.prototype, "textContent") && !Object.getOwnPropertyDescriptor(Element.prototype, "textContent").get) {
+	  (function () {
+	    var innerText = Object.getOwnPropertyDescriptor(Element.prototype, "innerText");
+	    Object.defineProperty(Element.prototype, "textContent", {
+	      get: function get() {
+	        return innerText.get.call(this);
+	      },
+	      set: function set(s) {
+	        return innerText.set.call(this, s);
+	      }
+	    });
+	  })();
+	}
+
+/***/ },
+/* 13 */
 /*!********************!*\
   !*** ./youtube.js ***!
   \********************/
