@@ -1,4 +1,5 @@
 require('./style.css');
+require('./pollyfills.js');
 require('./youtube.js');
 
 import Xmass from './xmass';
@@ -12,7 +13,7 @@ window.xmass = xmass;
 
 function render() {
 	window.requestAnimationFrame(() => {
-		canvas.innerText = xmass.render();
+		canvas.textContent = xmass.render();
 
 		render();
 	});
