@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    padding: 0;
+	height: 100%;
+}
+
+#canvas {
+	color: green;
+	height: 100%;
+	background-color: black;
+	background-image: url(../ascii_merry.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+
+	font-size: 1.3em;
+}
+
+.preformated {
+	font-family: monospace;
+	white-space: pre;
+}
+
+#scout {
+	color: black;
+}
